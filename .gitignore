@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+.env*.local
+.sites-runtime/
+*.log
+.DS_Store
+Products/
+tmp/
+AGENTS.md
+CLAUDE.md
