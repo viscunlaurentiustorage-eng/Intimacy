@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const checkoutUrl = process.env.NEXT_PUBLIC_PAYHIP_CHECKOUT_URL || "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
 const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "$9.99";
@@ -131,7 +132,18 @@ export default function Home() {
         <div className="faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <footer><Wordmark /><p>Precision over performance.</p><p>© 2026 · Adult education, not medical advice.</p></footer>
+      <footer className="site-footer">
+        <div className="footer-brand"><Wordmark /><p>Precision over performance.</p></div>
+        <nav className="legal-links" aria-label="Legal information">
+          <Link href="/impressum">Impressum</Link>
+          <Link href="/privacy">Privacy</Link>
+          <Link href="/terms">Terms</Link>
+          <Link href="/withdrawal">Withdrawal</Link>
+          <Link href="/refund-policy">Refunds</Link>
+          <a href="mailto:hello@noryspsychologie.de">Contact</a>
+        </nav>
+        <p className="footer-note">© 2026 · For adults 18+ · Educational content, not medical advice.</p>
+      </footer>
 
       <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Digital edition</span><strong>{displayPrice}</strong></div><a href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a></aside>
     </main>
