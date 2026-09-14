@@ -1,9 +1,7 @@
 import Image from "next/image";
-import Script from "next/script";
 
-const checkoutUrl = process.env.NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL || "#offer";
-const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "€19";
-const hasCheckout = checkoutUrl.startsWith("http");
+const checkoutUrl = process.env.NEXT_PUBLIC_PAYHIP_CHECKOUT_URL || "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
+const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "$9.99";
 
 const responsiveSequence = [
   { number: "01", title: "Build", text: "Raise anticipation gradually before direct stimulation." },
@@ -53,7 +51,7 @@ function Arrow() {
 
 function BuyButton({ label = "Get instant access", light = false }: { label?: string; light?: boolean }) {
   return (
-    <a className={`button ${light ? "button-light" : ""} ${hasCheckout ? "lemonsqueezy-button" : ""}`} href={checkoutUrl}>
+    <a className={`button ${light ? "button-light" : ""}`} href={checkoutUrl} target="_blank" rel="noreferrer">
       <span>{label}</span><Arrow />
     </a>
   );
@@ -62,14 +60,12 @@ function BuyButton({ label = "Get instant access", light = false }: { label?: st
 export default function Home() {
   return (
     <main id="top">
-      {hasCheckout && <Script src="https://app.lemonsqueezy.com/js/lemon.js" strategy="afterInteractive" />}
-
       <header className="site-header">
         <a href="#top" aria-label="The Clitoral Playbook home"><Wordmark /></a>
         <nav aria-label="Main navigation">
           <a href="#method">The method</a><a href="#inside">Inside</a><a href="#preview">Preview</a>
         </nav>
-        <a className={`header-cta ${hasCheckout ? "lemonsqueezy-button" : ""}`} href={checkoutUrl}>Get the playbook <Arrow /></a>
+        <a className="header-cta" href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a>
       </header>
 
       <section className="hero">
@@ -89,7 +85,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="assurance-strip" aria-label="Product assurances"><span>Secure Lemon Squeezy checkout</span><i /><span>Instant digital delivery</span><i /><span>Discreet adult education</span><i /><span>One-time payment</span></section>
+      <section className="assurance-strip" aria-label="Product assurances"><span>Secure Payhip checkout</span><i /><span>Instant digital delivery</span><i /><span>Discreet adult education</span><i /><span>One-time payment</span></section>
 
       <section className="problem section-shell">
         <div className="section-index">01 / Why this exists</div>
@@ -127,7 +123,7 @@ export default function Home() {
 
       <section className="offer section-shell" id="offer">
         <div className="offer-visual"><div className="offer-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 760px) 62vw, 26vw" /></div></div>
-        <div className="offer-copy"><p className="eyebrow light"><span />Instant digital access</p><h2>Become more precise.<br /><em>Stay more present.</em></h2><p className="offer-lead">Get the complete 24-page playbook and turn disconnected advice into one repeatable, responsive framework.</p><ul><li>9 focused chapters</li><li>2 foundational techniques</li><li>4 complete high-impact sequences</li><li>Anatomy and positioning illustrations</li><li>Pressure, pace, timing, and endurance guidance</li><li>Immediate PDF delivery after purchase</li></ul><div className="price-row"><div><small>Launch edition</small><strong>{displayPrice}</strong><span>One-time payment</span></div><BuyButton label="Get the playbook" light /></div><p className="secure-copy">Secure checkout powered by Lemon Squeezy · Adults 18+ · Digital product</p></div>
+        <div className="offer-copy"><p className="eyebrow light"><span />Instant digital access</p><h2>Become more precise.<br /><em>Stay more present.</em></h2><p className="offer-lead">Get the complete 24-page playbook and turn disconnected advice into one repeatable, responsive framework.</p><ul><li>9 focused chapters</li><li>2 foundational techniques</li><li>4 complete high-impact sequences</li><li>Anatomy and positioning illustrations</li><li>Pressure, pace, timing, and endurance guidance</li><li>Immediate PDF delivery after purchase</li></ul><div className="price-row"><div><small>Digital edition</small><strong>{displayPrice}</strong><span>One-time payment</span></div><BuyButton label="Get the playbook" light /></div><p className="secure-copy">Secure checkout powered by Payhip · Adults 18+ · Digital product</p></div>
       </section>
 
       <section className="faq section-shell" id="questions">
@@ -137,7 +133,7 @@ export default function Home() {
 
       <footer><Wordmark /><p>Precision over performance.</p><p>© 2026 · Adult education, not medical advice.</p></footer>
 
-      <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Digital edition</span><strong>{displayPrice}</strong></div><a className={hasCheckout ? "lemonsqueezy-button" : ""} href={checkoutUrl}>Get the playbook <Arrow /></a></aside>
+      <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Digital edition</span><strong>{displayPrice}</strong></div><a href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a></aside>
     </main>
   );
 }

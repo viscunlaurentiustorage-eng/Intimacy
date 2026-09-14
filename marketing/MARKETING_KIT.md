@@ -3,8 +3,8 @@
 Version: Launch 1.0  
 Product: 24-page digital guide (cover + contents + 22 numbered content pages)  
 Primary market: English-speaking adults, 18+  
-Checkout and delivery: Lemon Squeezy  
-Recommended launch price: EUR 19 one-time, moving to EUR 29 after initial validation
+Checkout and delivery: Payhip
+Launch price: USD 9.99 one-time
 
 ## 1. Brand foundation
 
@@ -133,18 +133,18 @@ The Clitoral Playbook digital edition:
 - Two core techniques and advanced variations.
 - Hands-and-mouth combinations.
 - Four repeatable start-to-finish sequences.
-- Immediate download through Lemon Squeezy.
+- Immediate download through Payhip.
 
 ### Recommended price strategy
 
-- Validation launch: EUR 19 one-time.
-- Standard price after first 50-100 verified sales: EUR 29.
+- Launch at USD 9.99 one-time.
+- Reassess pricing after the first 50-100 verified sales using conversion rate, refund rate, and buyer feedback.
 - Do not display a crossed-out price until the higher price has genuinely been charged.
 - Test price before adding bonuses; the product should first prove its core value.
 
 ### Guarantee recommendation
 
-Use Lemon Squeezy's refund workflow and publish an honest 14-day satisfaction policy only after confirming the exact operational policy in the store settings. Do not promise a guarantee on the site before it exists in the checkout terms.
+Use Payhip's refund workflow and publish an honest satisfaction policy only after confirming the exact operational policy in the store settings. Do not promise a guarantee on the site before it exists in the checkout terms.
 
 ### Future value ladder
 
@@ -306,18 +306,18 @@ The method is structured. The experience stays personal.
 
 [Get The Clitoral Playbook]
 
-### Email 5 - Launch close
+### Email 5 - Available now
 
-Subject: Launch pricing ends soon  
-Preview: Get the complete digital playbook before the price changes.
+Subject: The complete playbook is $9.99
+Preview: Get the practical digital guide and start with a clearer framework.
 
-The launch edition of The Clitoral Playbook is currently available for EUR 19.
+The digital edition of The Clitoral Playbook is available for USD 9.99.
 
 If you want a clearer, more confident framework for oral pleasure - without crude advice or random tricks - this is your invitation.
 
 [Get instant access]
 
-Use this email only when a real deadline and price change are scheduled.
+Use a deadline-focused variation only when a real deadline and price change are scheduled.
 
 ## 9. Organic social kit
 
@@ -405,10 +405,10 @@ The Clitoral Playbook is a premium 24-page digital guide for adults who want to 
 
 ### Pre-launch
 
-- Upload the final PDF to Lemon Squeezy.
-- Set product name, EUR 19 launch price, tax settings, and receipt copy.
-- Create a reusable `/checkout/buy/` URL, not a customer-specific cart URL.
-- Enable the checkout overlay and customize it to the black/ivory palette.
+- Upload the final PDF to Payhip.
+- Set the product name, USD 9.99 price, tax settings, and receipt copy.
+- Keep the public Payhip cart URL connected to every purchase button.
+- Customize the Payhip product and checkout presentation to match the black/ivory palette where available.
 - Confirm support email, refund policy, privacy policy, and terms.
 - Connect the final checkout URL to every CTA.
 - Test purchase, receipt, and download on mobile and desktop.
@@ -420,7 +420,7 @@ The Clitoral Playbook is a premium 24-page digital guide for adults who want to 
 - Day 3: Page-preview post + FAQ stories.
 - Day 4: Creator/affiliate outreach.
 - Day 5: Objection email and short-form video.
-- Final day: Honest deadline reminder only if launch pricing genuinely ends.
+- Final day: Product reminder or an honest deadline message only if an actual offer ends.
 
 ### Metrics to watch
 
@@ -435,7 +435,7 @@ The Clitoral Playbook is a premium 24-page digital guide for adults who want to 
 ### First test order
 
 1. Hero headline: "Stop guessing" vs "Learn the sequence. Read the response."
-2. EUR 19 vs EUR 29 after sufficient traffic.
+2. USD 9.99 vs a higher price after sufficient traffic.
 3. Cover-first hero vs page-preview-first hero.
 4. Primary CTA: "Get instant access" vs "Get the playbook."
 

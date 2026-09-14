@@ -9,16 +9,16 @@ npm install
 npm run dev
 ```
 
-## Connect Lemon Squeezy
+## Payhip checkout
 
-Copy `.env.example` to `.env.local`, then add the reusable checkout URL from the Lemon Squeezy product and the public display price:
+The live Payhip cart URL and public display price are included as safe defaults. They can also be overridden through environment variables:
 
 ```bash
-NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL=https://YOUR-STORE.lemonsqueezy.com/checkout/buy/YOUR-VARIANT-ID
-NEXT_PUBLIC_EBOOK_PRICE=€19
+NEXT_PUBLIC_PAYHIP_CHECKOUT_URL=https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1
+NEXT_PUBLIC_EBOOK_PRICE=$9.99
 ```
 
-When a real checkout URL is present, every purchase button opens Lemon Squeezy's checkout overlay. Without it, buttons lead to the offer section so the page remains safe to preview.
+Every purchase button opens the secure Payhip cart in a new tab.
 
 The site is configured as a static export. `npm run build` creates the production files in `out/`.
 
