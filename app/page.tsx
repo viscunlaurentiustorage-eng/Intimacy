@@ -1,31 +1,60 @@
 import Image from "next/image";
+import Script from "next/script";
 
 const checkoutUrl = process.env.NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL || "#offer";
-const isExternalCheckout = checkoutUrl.startsWith("http");
+const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "€19";
+const hasCheckout = checkoutUrl.startsWith("http");
+
+const responsiveSequence = [
+  { number: "01", title: "Build", text: "Raise anticipation gradually before direct stimulation." },
+  { number: "02", title: "Establish", text: "Begin with broad, comfortable contact and a relaxed rhythm." },
+  { number: "03", title: "Focus", text: "Use controlled suction to concentrate intensity when arousal is high." },
+  { number: "04", title: "Read", text: "Adjust pressure, pace, and position from the response—not from guesswork." },
+  { number: "05", title: "Hold", text: "When the pattern works, protect it. Consistency becomes the skill." },
+];
 
 const chapters = [
-  { part: "I", title: "Orientation before action", pages: "06–10", items: ["Attention beats technique", "Anatomy without reduction", "Arousal is a system"] },
-  { part: "II", title: "The responsive method", pages: "11–23", items: ["Make yes easy—and no easier", "Find the baseline", "The five dials", "Use approaches, not tricks"] },
-  { part: "III", title: "Safety without shame", pages: "24–28", items: ["Know the actual risk", "Dental dams made simple", "Pain is information"] },
-  { part: "IV", title: "Mastery through practice", pages: "29–37", items: ["Train the communication", "Make direction elegant", "Your shared map", "The pocket method"] },
+  ["01", "Anatomy You Need to Target", "A clear map of the external and internal structures that shape sensation."],
+  ["02", "The Build-Up Sequence", "A six-step progression from anticipation to direct contact."],
+  ["03", "The Broad Flat Stroke", "The high-coverage foundation for slow, even stimulation."],
+  ["04", "Focused Suction", "Lip position, seal control, pressure, rhythm, and four variations."],
+  ["05", "Advanced Variations", "Edging, zone targeting, temperature, texture, and moisture."],
+  ["06", "Combining Mouth and Hands", "Layer external and internal pressure while preserving rhythm."],
+  ["07", "Pressure, Pace & Timing", "Know what to adjust, how much, and when to hold steady."],
+  ["08", "Positioning & Endurance", "Improve access, neck comfort, hand freedom, and stamina."],
+  ["09", "High-Impact Combinations", "Four complete sequences that bring every lesson together."],
+];
+
+const outcomes = [
+  "Start slowly without wondering what comes next",
+  "Use two dependable techniques with better control",
+  "Make small, useful adjustments from real feedback",
+  "Choose positions that protect comfort and stamina",
+  "Combine mouth and hands without losing the rhythm",
+  "Hold the exact pattern that is building the response",
 ];
 
 const faqs = [
-  ["Who is this written for?", "Consenting adults who want to approach cunnilingus with more confidence, care, and responsiveness. It works whether you are new, experienced, reading alone, or reading with a partner."],
-  ["Is it just a list of techniques?", "No. You will find gentle starting approaches, but the book’s real value is the system around them: consent, setup, calibration, feedback, safety, and knowing when to stay consistent."],
-  ["Is the book graphic?", "It is direct and adult, but never crude. The design is discreet and editorial, with simplified educational diagrams rather than explicit photography."],
-  ["Is the advice evidence-informed?", "Yes. Health and anatomy sections reference peer-reviewed research and patient education from organizations including ACOG, the CDC, Planned Parenthood, the NHS, and WHO. It remains education, not medical advice."],
-  ["What will I receive?", "A 37-page premium PDF that reads beautifully on phones, tablets, and computers. Lemon Squeezy will handle secure payment and instant digital delivery."],
+  ["Who is this for?", "Consenting adults, 18+, who want a clearer and more responsive approach to oral pleasure. It works as a structured foundation for beginners and as a precision refresher for experienced partners."],
+  ["Is this just another list of tricks?", "No. The guide follows a system: anatomy, build-up, two core techniques, refinements, combinations, control, positioning, and four complete sequences."],
+  ["Will every technique work for every woman?", "No honest guide can promise that. Bodies and preferences differ. The playbook gives reliable starting points and teaches you to observe, communicate, adjust gradually, and keep what works."],
+  ["How explicit is it?", "It uses direct adult educational language and includes simplified anatomy and technique illustrations. There is no explicit photography."],
+  ["What exactly will I receive?", "A professionally designed 24-page PDF, delivered digitally after checkout and ready to read on a phone, tablet, or computer."],
+  ["Is this medical advice?", "No. The Clitoral Playbook is adult educational content and is not a substitute for medical advice, diagnosis, or treatment."],
 ];
 
-function Mark() {
-  return <span className="mark" aria-hidden="true"><span /><span /></span>;
+function Wordmark() {
+  return <span className="wordmark"><b>TCP</b><span>The Clitoral<br />Playbook</span></span>;
 }
 
-function BuyButton({ label = "Get the guide" }: { label?: string }) {
+function Arrow() {
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" /></svg>;
+}
+
+function BuyButton({ label = "Get instant access", light = false }: { label?: string; light?: boolean }) {
   return (
-    <a className="buy-button" href={checkoutUrl} target={isExternalCheckout ? "_blank" : undefined} rel={isExternalCheckout ? "noreferrer" : undefined} aria-label={`${label} — The Clit Runner ebook`}>
-      <span>{label}</span><b aria-hidden="true">↗</b>
+    <a className={`button ${light ? "button-light" : ""} ${hasCheckout ? "lemonsqueezy-button" : ""}`} href={checkoutUrl}>
+      <span>{label}</span><Arrow />
     </a>
   );
 }
@@ -33,92 +62,82 @@ function BuyButton({ label = "Get the guide" }: { label?: string }) {
 export default function Home() {
   return (
     <main id="top">
+      {hasCheckout && <Script src="https://app.lemonsqueezy.com/js/lemon.js" strategy="afterInteractive" />}
+
       <header className="site-header">
-        <a className="brand" href="#top" aria-label="The Pleasure Manual home"><Mark /><span>The Pleasure Manual</span></a>
-        <nav aria-label="Main navigation"><a href="#preview">Preview</a><a href="#inside">Inside</a><a href="#questions">Questions</a></nav>
-        <a className="header-buy" href={checkoutUrl}>Get the ebook <span>↗</span></a>
+        <a href="#top" aria-label="The Clitoral Playbook home"><Wordmark /></a>
+        <nav aria-label="Main navigation">
+          <a href="#method">The method</a><a href="#inside">Inside</a><a href="#preview">Preview</a>
+        </nav>
+        <a className={`header-cta ${hasCheckout ? "lemonsqueezy-button" : ""}`} href={checkoutUrl}>Get the playbook <Arrow /></a>
       </header>
 
       <section className="hero">
         <div className="hero-copy">
-          <p className="kicker"><span /> A field guide for better lovers</p>
-          <h1>Great oral sex isn’t a trick. <em>It’s paying attention.</em></h1>
-          <p className="hero-lead">The Clit Runner is a warm, practical guide to cunnilingus for people who want less guessing, easier communication, and more pleasure without pressure.</p>
-          <div className="hero-actions"><BuyButton label="Get instant access" /><a className="quiet-link" href="#preview">See real pages <span>↓</span></a></div>
-          <ul className="hero-facts" aria-label="Product details">
-            <li><strong>37</strong><span>beautifully designed pages</span></li>
-            <li><strong>20</strong><span>short, useful chapters</span></li>
-            <li><strong>1</strong><span>method you can remember</span></li>
-          </ul>
+          <p className="eyebrow"><span />A practical guide for attentive lovers</p>
+          <h1>Stop guessing.<br /><em>Learn what works.</em></h1>
+          <p className="hero-lead">A concise, visual playbook for better oral technique—anatomy, build-up, pressure, pace, positioning, and four complete sequences you can actually remember.</p>
+          <div className="hero-actions"><BuyButton /><a className="text-link" href="#preview">Preview the book <span>↓</span></a></div>
+          <div className="trust-row" aria-label="Purchase details"><span><b>24</b> designed pages</span><span><b>9</b> focused chapters</span><span><b>4</b> complete sequences</span></div>
         </div>
-        <div className="book-stage" aria-label="The Clit Runner premium ebook">
-          <div className="human-note note-one">No ego.<br />No guessing.</div><div className="book-shadow" />
-          <div className="book-cover">
-            <Image src="/luxury-cover-art.png" alt="" fill priority sizes="(max-width: 760px) 78vw, 34vw" />
-            <div className="cover-copy"><span>The Pleasure Manual presents</span><h2>The<br />Clit<br />Runner</h2><p>A refined, responsive guide to cunnilingus for consenting adults</p><small>Premium edition · 2026</small></div>
-          </div>
-          <div className="edition-seal">Premium<br /><span>edition</span></div>
+
+        <div className="hero-visual">
+          <span className="orbit orbit-one" /><span className="orbit orbit-two" />
+          <p className="margin-note">Read the response.<br />Then hold what works.</p>
+          <div className="book-object"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill priority sizes="(max-width: 760px) 76vw, 34vw" /></div>
+          <div className="edition-stamp"><strong>Digital</strong><span>Edition · 2026</span></div>
         </div>
       </section>
 
-      <section className="recognition section-wrap">
-        <div className="recognition-copy"><p className="section-kicker">Let’s be honest</p><h2>Most people were never actually taught this.</h2><p>We pick things up from jokes, porn, guesswork, and past partners—then quietly wonder whether we are doing it “right.” That is a lot of pressure for something that should feel connected.</p><p className="hand-line">You don’t need a perfect routine. You need a better way to listen.</p></div>
-        <div className="thoughts" aria-label="Common questions the guide answers"><p>“How do I know if they actually like it?”</p><p>“Should I change something—or keep going?”</p><p>“How do we talk without killing the mood?”</p><p>“What if direct touch is too much?”</p></div>
+      <section className="assurance-strip" aria-label="Product assurances"><span>Secure Lemon Squeezy checkout</span><i /><span>Instant digital delivery</span><i /><span>Discreet adult education</span><i /><span>One-time payment</span></section>
+
+      <section className="problem section-shell">
+        <div className="section-index">01 / Why this exists</div>
+        <div className="problem-copy"><h2>More moves are not the answer.</h2><p className="large-copy">Most people learn oral sex through fragments—a tip here, a past partner there, and plenty of silent uncertainty.</p><div className="problem-columns"><p>The real difficulty is not a shortage of techniques. It is not knowing what to do first, what to adjust, or when to stay exactly where you are.</p><p>The Clitoral Playbook replaces random improvisation with a clear progression you can adapt to the person in front of you.</p></div></div>
       </section>
 
-      <section className="outcomes section-wrap">
-        <div className="outcomes-heading"><p className="section-kicker">What changes</p><h2>You finish the book knowing what to do next.</h2></div>
-        <div className="outcome-grid">
-          <article><span>01</span><h3>Begin without rushing</h3><p>Create comfort, ask clearly, and use the first 90 seconds to find a baseline.</p></article>
-          <article><span>02</span><h3>Adjust with confidence</h3><p>Change location, pressure, pace, pattern, or duration—one useful dial at a time.</p></article>
-          <article><span>03</span><h3>Read without assuming</h3><p>Notice body language, verify what it means, and correct course without defensiveness.</p></article>
-          <article><span>04</span><h3>Make honesty feel safe</h3><p>Turn “lighter,” “stay,” “not there,” and “stop” into ordinary, welcome information.</p></article>
+      <section className="method" id="method">
+        <div className="method-heading section-shell"><div className="section-index light">02 / The method</div><div><p className="eyebrow light"><span />The responsive sequence</p><h2>A sequence you can follow.<br /><em>A response you can read.</em></h2></div></div>
+        <div className="sequence section-shell">{responsiveSequence.map((step) => <article key={step.number}><span>{step.number}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></article>)}</div>
+        <blockquote>“The highest skill is not performing more movements—it is knowing exactly when to hold steady.”</blockquote>
+      </section>
+
+      <section className="outcomes section-shell">
+        <div className="section-index">03 / What changes</div>
+        <div className="outcomes-body"><p className="eyebrow"><span />From uncertainty to control</p><h2>Finish the book knowing what to do next.</h2><div className="outcome-list">{outcomes.map((outcome, index) => <div key={outcome}><b>{String(index + 1).padStart(2, "0")}</b><p>{outcome}</p></div>)}</div></div>
+      </section>
+
+      <section className="preview" id="preview">
+        <div className="preview-heading section-shell"><div className="section-index">04 / Real pages</div><div><p className="eyebrow"><span />Look inside</p><h2>See what you are buying.</h2><p>No mock content. These pages come directly from the final digital edition.</p></div></div>
+        <div className="preview-rail">
+          <figure><Image src="/book/table-of-contents.jpg" alt="The Clitoral Playbook table of contents" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>01</span>Complete contents</figcaption></figure>
+          <figure><Image src="/book/core-technique.jpg" alt="Preview of the broad flat stroke chapter" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>02</span>Core technique</figcaption></figure>
+          <figure><Image src="/book/high-impact-sequence.jpg" alt="Preview of a high-impact combination sequence" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>03</span>Complete sequence</figcaption></figure>
         </div>
       </section>
 
-      <section className="preview-section section-wrap" id="preview">
-        <div className="preview-heading"><div><p className="section-kicker light">Look inside</p><h2>See exactly what you’re getting.</h2></div><p>Short chapters. Clear language. Useful scripts. Designed to be read, remembered, and returned to.</p></div>
-        <div className="page-previews">
-          <figure className="preview-card preview-card-one"><Image src="/previews/attention.png" alt="Preview page: Attention beats technique" width={839} height={1191} sizes="(max-width: 760px) 78vw, 27vw" /><figcaption><span>01</span> The governing principle</figcaption></figure>
-          <figure className="preview-card preview-card-two"><Image src="/previews/feedback.png" alt="Preview page: Make yes easy and no easier" width={839} height={1191} sizes="(max-width: 760px) 78vw, 27vw" /><figcaption><span>04</span> Consent that feels natural</figcaption></figure>
-          <figure className="preview-card preview-card-three"><Image src="/previews/checklist.png" alt="Preview page: The one-minute pre-flight checklist" width={839} height={1191} sizes="(max-width: 760px) 78vw, 27vw" /><figcaption><span>Bonus</span> The one-minute reset</figcaption></figure>
-        </div>
+      <section className="inside section-shell" id="inside">
+        <div className="inside-intro"><div className="section-index">05 / Inside the playbook</div><div><p className="eyebrow"><span />Nine focused chapters</p><h2>The complete framework.<br />Nothing extra.</h2><p>Move from anatomy and build-up to technique, control, positioning, and complete start-to-finish sequences.</p></div></div>
+        <div className="chapter-list">{chapters.map(([number, title, description]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
       </section>
 
-      <section className="method section-wrap">
-        <div className="method-copy"><p className="section-kicker light">The memorable bit</p><h2>Five dials.<br />One change.<br /><em>Then listen.</em></h2><p>Instead of chasing named moves, you learn to calibrate the variables that shape every kind of touch: location, pressure, pace, pattern, and duration.</p><div className="method-quote">“Real precision is the ability to change one thing while keeping the rest stable.”</div></div>
-        <div className="method-image"><Image src="/five-dials.png" alt="Five control dials representing location, pressure, pace, pattern, and duration" width={1536} height={1024} sizes="(max-width: 900px) 100vw, 55vw" /></div>
+      <section className="fit">
+        <div className="fit-inner section-shell"><div className="section-index light">06 / A clear fit</div><div className="fit-copy"><p className="eyebrow light"><span />This is for you if</p><h2>You care more about the response than the performance.</h2><ul><li>You want a calm, structured place to begin.</li><li>You have experience but want more consistency.</li><li>You want practical language without crude posturing.</li><li>You are willing to observe, ask, adapt, and slow down.</li></ul></div><div className="honest-note"><span>Worth knowing</span><p>No guide can make every body respond the same way. This one teaches strong starting points—and the attention required to personalize them.</p></div></div>
       </section>
 
-      <section className="letter section-wrap">
-        <div className="letter-label"><Mark /><span>A note from<br />The Pleasure Manual</span></div>
-        <div className="letter-copy"><p className="opening">Dear reader,</p><h2>Anyone can collect techniques. Mastery begins when you stop performing and start perceiving.</h2><p>Bodies do not arrive with universal settings. Sensitivity changes with trust, stress, sleep, medication, pain, hormones, and the quality of the moment itself.</p><p>Your job is not to know in advance. Your job is to make discovery feel safe, generous, and unhurried. That is the skill this book was made to teach.</p><p className="signoff">Be present. Be precise. Be kind.<br /><span>Then listen again.</span></p></div>
+      <section className="offer section-shell" id="offer">
+        <div className="offer-visual"><div className="offer-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 760px) 62vw, 26vw" /></div></div>
+        <div className="offer-copy"><p className="eyebrow light"><span />Instant digital access</p><h2>Become more precise.<br /><em>Stay more present.</em></h2><p className="offer-lead">Get the complete 24-page playbook and turn disconnected advice into one repeatable, responsive framework.</p><ul><li>9 focused chapters</li><li>2 foundational techniques</li><li>4 complete high-impact sequences</li><li>Anatomy and positioning illustrations</li><li>Pressure, pace, timing, and endurance guidance</li><li>Immediate PDF delivery after purchase</li></ul><div className="price-row"><div><small>Launch edition</small><strong>{displayPrice}</strong><span>One-time payment</span></div><BuyButton label="Get the playbook" light /></div><p className="secure-copy">Secure checkout powered by Lemon Squeezy · Adults 18+ · Digital product</p></div>
       </section>
 
-      <section className="inside section-wrap" id="inside">
-        <div className="inside-heading"><p className="section-kicker">Inside the premium edition</p><h2>A complete field guide, without the filler.</h2><p>Four parts move from mindset to method, safety, and real-world practice.</p></div>
-        <div className="chapter-groups">{chapters.map((chapter) => <article key={chapter.part}><div className="chapter-top"><span>Part {chapter.part}</span><small>Pages {chapter.pages}</small></div><h3>{chapter.title}</h3><ul>{chapter.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
+      <section className="faq section-shell" id="questions">
+        <div className="faq-intro"><div className="section-index">07 / Before you buy</div><p className="eyebrow"><span />Straight answers</p><h2>Questions are welcome.</h2></div>
+        <div className="faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="evidence section-wrap">
-        <div><p className="section-kicker light">Evidence, not ego</p><h2>Carefully researched.<br />Clearly explained.</h2></div>
-        <div><p>Health and anatomy sections draw from peer-reviewed research and current patient education. Practical frameworks are always presented as starting points—not universal rules.</p><ul aria-label="Research sources"><li>ACOG</li><li>CDC</li><li>Planned Parenthood</li><li>NHS</li><li>WHO</li></ul><small>These organizations have not endorsed or reviewed this publication.</small></div>
-      </section>
+      <footer><Wordmark /><p>Precision over performance.</p><p>© 2026 · Adult education, not medical advice.</p></footer>
 
-      <section className="offer section-wrap" id="offer">
-        <div className="offer-card">
-          <div className="offer-book"><Image src="/luxury-cover-art.png" alt="The Clit Runner book artwork" fill sizes="(max-width: 760px) 60vw, 24vw" /><div><span>The Pleasure Manual</span><strong>The<br />Clit<br />Runner</strong><small>Premium edition</small></div></div>
-          <div className="offer-copy"><p className="section-kicker light">Start tonight</p><h2>Less guessing.<br /><em>More listening.</em></h2><p>A discreet, beautifully designed PDF for consenting adults who care about getting this right.</p><ul><li><span>✓</span> 37-page premium digital edition</li><li><span>✓</span> 20 concise, actionable chapters</li><li><span>✓</span> Scripts, exercises, field notes, and checklists</li><li><span>✓</span> Secure checkout and instant delivery</li></ul><BuyButton label="Get The Clit Runner" /><small className="secure-note">Secure checkout powered by Lemon Squeezy · PDF download · Adults 18+</small></div>
-        </div>
-      </section>
-
-      <section className="faq section-wrap" id="questions">
-        <div className="faq-heading"><p className="section-kicker">Before you buy</p><h2>Honest answers.</h2><p>Still unsure? Here’s what most readers want to know.</p></div>
-        <div className="faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div>
-      </section>
-
-      <footer><div className="footer-brand"><Mark /><span>The Pleasure Manual</span></div><p>Present. Precise. Kind.</p><p>© 2026 · Adult sexual-wellness education, not medical advice.</p></footer>
-      <aside className="mobile-buy-bar" aria-label="Purchase The Clit Runner"><div><strong>The Clit Runner</strong><span>Premium PDF · 37 pages</span></div><a href={checkoutUrl} target={isExternalCheckout ? "_blank" : undefined} rel={isExternalCheckout ? "noreferrer" : undefined}>Get the ebook <span>↗</span></a></aside>
+      <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Digital edition</span><strong>{displayPrice}</strong></div><a className={hasCheckout ? "lemonsqueezy-button" : ""} href={checkoutUrl}>Get the playbook <Arrow /></a></aside>
     </main>
   );
 }

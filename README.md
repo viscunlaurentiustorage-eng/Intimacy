@@ -1,6 +1,6 @@
-# The Clit Runner landing page
+# The Clitoral Playbook landing page
 
-A responsive Next.js sales page for the 37-page premium edition of *The Clit Runner* by The Pleasure Manual.
+A responsive Next.js sales page for the final 24-page digital edition of *The Clitoral Playbook*.
 
 ## Run locally
 
@@ -11,10 +11,17 @@ npm run dev
 
 ## Connect Lemon Squeezy
 
-Copy `.env.example` to `.env.local` and replace the placeholder with the checkout URL from your Lemon Squeezy product:
+Copy `.env.example` to `.env.local`, then add the reusable checkout URL from the Lemon Squeezy product and the public display price:
 
 ```bash
-NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL=https://YOUR-STORE.lemonsqueezy.com/buy/YOUR-CHECKOUT-ID
+NEXT_PUBLIC_LEMON_SQUEEZY_CHECKOUT_URL=https://YOUR-STORE.lemonsqueezy.com/checkout/buy/YOUR-VARIANT-ID
+NEXT_PUBLIC_EBOOK_PRICE=€19
 ```
 
-Restart the development server after changing environment variables. The site is configured as a static export; `npm run build` creates the production files in `out/`.
+When a real checkout URL is present, every purchase button opens Lemon Squeezy's checkout overlay. Without it, buttons lead to the offer section so the page remains safe to preview.
+
+The site is configured as a static export. `npm run build` creates the production files in `out/`.
+
+## Marketing kit
+
+Launch positioning, audience, messaging, offer strategy, email sequence, social campaigns, paid ad concepts, and testing plan are in `marketing/MARKETING_KIT.md`.
