@@ -51,7 +51,12 @@ function Check() {
 }
 
 function Wordmark({ inverse = false }: { inverse?: boolean }) {
-  return <span className={`wordmark ${inverse ? "wordmark-inverse" : ""}`}><b>TCP</b><span>The Clitoral Playbook</span></span>;
+  return (
+    <span className={`wordmark ${inverse ? "wordmark-inverse" : ""}`}>
+      <span className="wordmark-icon"><Image src="/logoW.png" alt="" width={600} height={450} sizes="48px" /></span>
+      <span>The Clitoral Playbook</span>
+    </span>
+  );
 }
 
 function BuyButton({ label = `Get the playbook — ${displayPrice}`, inverse = false }: { label?: string; inverse?: boolean }) {
@@ -75,7 +80,6 @@ export default function Home() {
 
       <section className="hero section-shell">
         <div className="hero-copy">
-          <p className="eyebrow"><span />A practical guide to better oral pleasure</p>
           <h1>Better technique starts with <em>paying attention.</em></h1>
           <p className="hero-lead">Stop collecting random tips. Learn a clear, responsive system for anatomy, build-up, pressure, pace, positioning, and knowing when to hold steady.</p>
           <div className="hero-actions"><BuyButton /><a className="preview-link" href="#preview">See real pages <span>↓</span></a></div>

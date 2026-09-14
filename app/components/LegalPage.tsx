@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -24,7 +25,7 @@ export function LegalPage({
     <main className="legal-page">
       <header className="legal-header">
         <Link className="legal-home" href="/" aria-label="Return to The Clitoral Playbook">
-          <span>TCP</span>
+          <span className="legal-home-icon"><Image src="/logoW.png" alt="" width={600} height={450} sizes="48px" /></span>
           <b>The Clitoral Playbook</b>
         </Link>
         <Link className="legal-back" href="/">Back to the book</Link>
