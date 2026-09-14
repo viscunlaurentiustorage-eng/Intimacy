@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vezza.studio"),
-  title: "The Clitoral Playbook | Stop Guessing. Learn What Works.",
-  description: "A practical 24-page guide to oral pleasure, better technique, pressure, timing, positioning, and reading her response.",
+  title: "The Clitoral Playbook | Be the Reason She Says Don’t Stop",
+  description: "Learn how to read her body, build anticipation, and turn nervous guesswork into calm, attentive confidence.",
   alternates: { canonical: "/" },
-  openGraph: { title: "The Clitoral Playbook", description: "Stop guessing. Learn a repeatable, responsive approach to better oral technique.", type: "website", url: "/" },
-  twitter: { card: "summary", title: "The Clitoral Playbook", description: "A practical guide to better oral technique and reading her response." },
+  openGraph: { title: "The Clitoral Playbook", description: "Be the reason she says don’t stop. Learn a responsive approach to pleasure and confidence.", type: "website", url: "/" },
+  twitter: { card: "summary", title: "The Clitoral Playbook", description: "Turn guesswork into calm, attentive confidence." },
   icons: { icon: "/favicon.svg" },
 };
 
