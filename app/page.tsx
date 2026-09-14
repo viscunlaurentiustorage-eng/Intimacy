@@ -1,58 +1,62 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const checkoutUrl = process.env.NEXT_PUBLIC_PAYHIP_CHECKOUT_URL || "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
+const checkoutUrl =
+  process.env.NEXT_PUBLIC_PAYHIP_CHECKOUT_URL ||
+  "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
 const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "$9.99";
 
-const responsiveSequence = [
-  { number: "01", title: "Build", text: "Raise anticipation gradually before direct stimulation." },
-  { number: "02", title: "Establish", text: "Begin with broad, comfortable contact and a relaxed rhythm." },
-  { number: "03", title: "Focus", text: "Use controlled suction to concentrate intensity when arousal is high." },
-  { number: "04", title: "Read", text: "Adjust pressure, pace, and position from the response—not from guesswork." },
-  { number: "05", title: "Hold", text: "When the pattern works, protect it. Consistency becomes the skill." },
+const questions = [
+  "Am I starting too directly?",
+  "Should I change the pressure—or keep going?",
+  "How do I use my hands without losing the rhythm?",
+  "What position gives me control without exhausting me?",
 ];
 
-const chapters = [
-  ["01", "Anatomy You Need to Target", "A clear map of the external and internal structures that shape sensation."],
-  ["02", "The Build-Up Sequence", "A six-step progression from anticipation to direct contact."],
-  ["03", "The Broad Flat Stroke", "The high-coverage foundation for slow, even stimulation."],
-  ["04", "Focused Suction", "Lip position, seal control, pressure, rhythm, and four variations."],
-  ["05", "Advanced Variations", "Edging, zone targeting, temperature, texture, and moisture."],
-  ["06", "Combining Mouth and Hands", "Layer external and internal pressure while preserving rhythm."],
-  ["07", "Pressure, Pace & Timing", "Know what to adjust, how much, and when to hold steady."],
-  ["08", "Positioning & Endurance", "Improve access, neck comfort, hand freedom, and stamina."],
-  ["09", "High-Impact Combinations", "Four complete sequences that bring every lesson together."],
+const method = [
+  { number: "01", title: "Understand", text: "Learn the anatomy that matters, what creates sensation, and why indirect stimulation often works better first." },
+  { number: "02", title: "Build", text: "Follow a practical progression from anticipation to broad contact, focused stimulation, and complete sequences." },
+  { number: "03", title: "Respond", text: "Read physical feedback, adjust one variable at a time, and recognize the moment to stop changing anything." },
 ];
 
 const outcomes = [
-  "Start slowly without wondering what comes next",
-  "Use two dependable techniques with better control",
-  "Make small, useful adjustments from real feedback",
-  "Choose positions that protect comfort and stamina",
-  "Combine mouth and hands without losing the rhythm",
-  "Hold the exact pattern that is building the response",
+  ["A calmer start", "Know how to build anticipation before direct contact."],
+  ["Better control", "Understand pressure, pace, positioning, and endurance."],
+  ["Less guesswork", "Use response—not performance—as your guide."],
+  ["A repeatable plan", "Remember complete sequences when you need them."],
+];
+
+const contents = [
+  ["Foundation", "Anatomy you need to target", "The six-step build-up sequence", "The broad flat stroke"],
+  ["Precision", "Focused suction and four variations", "Advanced texture and temperature", "Pressure, pace, and timing"],
+  ["Integration", "Combining mouth and hands", "Positioning and endurance", "Four high-impact combinations"],
 ];
 
 const faqs = [
-  ["Who is this for?", "Consenting adults, 18+, who want a clearer and more responsive approach to oral pleasure. It works as a structured foundation for beginners and as a precision refresher for experienced partners."],
-  ["Is this just another list of tricks?", "No. The guide follows a system: anatomy, build-up, two core techniques, refinements, combinations, control, positioning, and four complete sequences."],
-  ["Will every technique work for every woman?", "No honest guide can promise that. Bodies and preferences differ. The playbook gives reliable starting points and teaches you to observe, communicate, adjust gradually, and keep what works."],
-  ["How explicit is it?", "It uses direct adult educational language and includes simplified anatomy and technique illustrations. There is no explicit photography."],
-  ["What exactly will I receive?", "A professionally designed 24-page PDF, delivered digitally after checkout and ready to read on a phone, tablet, or computer."],
-  ["Is this medical advice?", "No. The Clitoral Playbook is adult educational content and is not a substitute for medical advice, diagnosis, or treatment."],
+  ["Who is this for?", "Consenting adults, 18+, who want a clearer and more responsive approach to oral pleasure. It works as a structured starting point for beginners and as a precision refresher for experienced partners."],
+  ["Is this just a list of tricks?", "No. The guide teaches one connected framework: understand the anatomy, build arousal gradually, use two foundational techniques, combine them intelligently, and adapt from feedback."],
+  ["Will it work for every woman?", "No honest guide can promise that. Bodies and preferences differ. The playbook gives you reliable starting points and teaches you how to communicate, observe, and personalize them."],
+  ["How explicit is the ebook?", "It uses direct adult educational language with simplified anatomy and technique illustrations. There is no explicit photography."],
+  ["What exactly do I receive?", "A professionally designed 24-page PDF with nine focused chapters and four complete sequences. It is delivered digitally after checkout and can be read on a phone, tablet, or computer."],
+  ["How does delivery work?", "Payhip provides your download immediately after payment and also sends a receipt with your access link to the email address used at checkout."],
+  ["What if I cannot access the file?", "Email hello@noryspsychologie.de with your Payhip order number and the email used at checkout. We will help restore access or replace a faulty file."],
 ];
 
-function Wordmark() {
-  return <span className="wordmark"><b>TCP</b><span>The Clitoral<br />Playbook</span></span>;
-}
-
 function Arrow() {
-  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" /></svg>;
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13M11 5l5 5-5 5" /></svg>;
 }
 
-function BuyButton({ label = "Get instant access", light = false }: { label?: string; light?: boolean }) {
+function Check() {
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m4 10 4 4 8-9" /></svg>;
+}
+
+function Wordmark({ inverse = false }: { inverse?: boolean }) {
+  return <span className={`wordmark ${inverse ? "wordmark-inverse" : ""}`}><b>TCP</b><span>The Clitoral Playbook</span></span>;
+}
+
+function BuyButton({ label = `Get the playbook — ${displayPrice}`, inverse = false }: { label?: string; inverse?: boolean }) {
   return (
-    <a className={`button ${light ? "button-light" : ""}`} href={checkoutUrl} target="_blank" rel="noreferrer">
+    <a className={`buy-button ${inverse ? "buy-button-inverse" : ""}`} href={checkoutUrl} target="_blank" rel="noreferrer">
       <span>{label}</span><Arrow />
     </a>
   );
@@ -60,92 +64,92 @@ function BuyButton({ label = "Get instant access", light = false }: { label?: st
 
 export default function Home() {
   return (
-    <main id="top">
+    <main id="top" className="home-page">
+      <div className="age-strip"><span>For consenting adults 18+</span><span>Discreet educational guide</span></div>
+
       <header className="site-header">
         <a href="#top" aria-label="The Clitoral Playbook home"><Wordmark /></a>
-        <nav aria-label="Main navigation">
-          <a href="#method">The method</a><a href="#inside">Inside</a><a href="#preview">Preview</a>
-        </nav>
-        <a className="header-cta" href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a>
+        <nav aria-label="Main navigation"><a href="#inside">What&apos;s inside</a><a href="#preview">Preview</a><a href="#questions">Questions</a></nav>
+        <a className="header-cta" href={checkoutUrl} target="_blank" rel="noreferrer">Get instant access <Arrow /></a>
       </header>
 
-      <section className="hero">
+      <section className="hero section-shell">
         <div className="hero-copy">
-          <p className="eyebrow"><span />A practical guide for attentive lovers</p>
-          <h1>Stop guessing.<br /><em>Learn what works.</em></h1>
-          <p className="hero-lead">A concise, visual playbook for better oral technique—anatomy, build-up, pressure, pace, positioning, and four complete sequences you can actually remember.</p>
-          <div className="hero-actions"><BuyButton /><a className="text-link" href="#preview">Preview the book <span>↓</span></a></div>
-          <div className="trust-row" aria-label="Purchase details"><span><b>24</b> designed pages</span><span><b>9</b> focused chapters</span><span><b>4</b> complete sequences</span></div>
+          <p className="eyebrow"><span />A practical guide to better oral pleasure</p>
+          <h1>Better technique starts with <em>paying attention.</em></h1>
+          <p className="hero-lead">Stop collecting random tips. Learn a clear, responsive system for anatomy, build-up, pressure, pace, positioning, and knowing when to hold steady.</p>
+          <div className="hero-actions"><BuyButton /><a className="preview-link" href="#preview">See real pages <span>↓</span></a></div>
+          <div className="hero-proof" aria-label="Product information"><span><Check />24-page illustrated PDF</span><span><Check />Instant delivery</span><span><Check />One-time payment</span></div>
+          <p className="checkout-note">Secure checkout powered by Payhip. Final total shown before payment.</p>
         </div>
-
-        <div className="hero-visual">
-          <span className="orbit orbit-one" /><span className="orbit orbit-two" />
-          <p className="margin-note">Read the response.<br />Then hold what works.</p>
-          <div className="book-object"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill priority sizes="(max-width: 760px) 76vw, 34vw" /></div>
-          <div className="edition-stamp"><strong>Digital</strong><span>Edition · 2026</span></div>
-        </div>
-      </section>
-
-      <section className="assurance-strip" aria-label="Product assurances"><span>Secure Payhip checkout</span><i /><span>Instant digital delivery</span><i /><span>Discreet adult education</span><i /><span>One-time payment</span></section>
-
-      <section className="problem section-shell">
-        <div className="section-index">01 / Why this exists</div>
-        <div className="problem-copy"><h2>More moves are not the answer.</h2><p className="large-copy">Most people learn oral sex through fragments—a tip here, a past partner there, and plenty of silent uncertainty.</p><div className="problem-columns"><p>The real difficulty is not a shortage of techniques. It is not knowing what to do first, what to adjust, or when to stay exactly where you are.</p><p>The Clitoral Playbook replaces random improvisation with a clear progression you can adapt to the person in front of you.</p></div></div>
-      </section>
-
-      <section className="method" id="method">
-        <div className="method-heading section-shell"><div className="section-index light">02 / The method</div><div><p className="eyebrow light"><span />The responsive sequence</p><h2>A sequence you can follow.<br /><em>A response you can read.</em></h2></div></div>
-        <div className="sequence section-shell">{responsiveSequence.map((step) => <article key={step.number}><span>{step.number}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></article>)}</div>
-        <blockquote>“The highest skill is not performing more movements—it is knowing exactly when to hold steady.”</blockquote>
-      </section>
-
-      <section className="outcomes section-shell">
-        <div className="section-index">03 / What changes</div>
-        <div className="outcomes-body"><p className="eyebrow"><span />From uncertainty to control</p><h2>Finish the book knowing what to do next.</h2><div className="outcome-list">{outcomes.map((outcome, index) => <div key={outcome}><b>{String(index + 1).padStart(2, "0")}</b><p>{outcome}</p></div>)}</div></div>
-      </section>
-
-      <section className="preview" id="preview">
-        <div className="preview-heading section-shell"><div className="section-index">04 / Real pages</div><div><p className="eyebrow"><span />Look inside</p><h2>See what you are buying.</h2><p>No mock content. These pages come directly from the final digital edition.</p></div></div>
-        <div className="preview-rail">
-          <figure><Image src="/book/table-of-contents.jpg" alt="The Clitoral Playbook table of contents" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>01</span>Complete contents</figcaption></figure>
-          <figure><Image src="/book/core-technique.jpg" alt="Preview of the broad flat stroke chapter" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>02</span>Core technique</figcaption></figure>
-          <figure><Image src="/book/high-impact-sequence.jpg" alt="Preview of a high-impact combination sequence" width={854} height={1334} sizes="(max-width: 760px) 79vw, 29vw" /><figcaption><span>03</span>Complete sequence</figcaption></figure>
+        <div className="hero-product" aria-label="The Clitoral Playbook digital edition">
+          <div className="hero-shape" />
+          <div className="hero-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill priority sizes="(max-width: 780px) 72vw, 34vw" /></div>
+          <div className="hero-badge"><strong>9</strong><span>focused<br />chapters</span></div>
+          <div className="hero-note">Practical. Visual.<br />Easy to remember.</div>
         </div>
       </section>
 
-      <section className="inside section-shell" id="inside">
-        <div className="inside-intro"><div className="section-index">05 / Inside the playbook</div><div><p className="eyebrow"><span />Nine focused chapters</p><h2>The complete framework.<br />Nothing extra.</h2><p>Move from anatomy and build-up to technique, control, positioning, and complete start-to-finish sequences.</p></div></div>
-        <div className="chapter-list">{chapters.map(([number, title, description]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+      <section className="trust-bar" aria-label="Purchase assurances"><span>Instant PDF access</span><i /><span>Secure Payhip checkout</span><i /><span>No subscription</span><i /><span>Private, discreet purchase</span></section>
+
+      <section className="recognition section-shell">
+        <div className="recognition-heading"><p className="eyebrow"><span />The real problem</p><h2>It is not a shortage of moves. It is not knowing what to do next.</h2></div>
+        <div className="question-stack">{questions.map((question, index) => <div key={question}><span>0{index + 1}</span><p>{question}</p></div>)}</div>
+        <p className="recognition-close">The Clitoral Playbook turns those uncertain moments into a sequence you can understand, remember, and adapt to the person in front of you.</p>
       </section>
 
-      <section className="fit">
-        <div className="fit-inner section-shell"><div className="section-index light">06 / A clear fit</div><div className="fit-copy"><p className="eyebrow light"><span />This is for you if</p><h2>You care more about the response than the performance.</h2><ul><li>You want a calm, structured place to begin.</li><li>You have experience but want more consistency.</li><li>You want practical language without crude posturing.</li><li>You are willing to observe, ask, adapt, and slow down.</li></ul></div><div className="honest-note"><span>Worth knowing</span><p>No guide can make every body respond the same way. This one teaches strong starting points—and the attention required to personalize them.</p></div></div>
+      <section className="method-section" id="method">
+        <div className="method-intro section-shell"><p className="eyebrow eyebrow-light"><span />One responsive framework</p><h2>Learn the logic.<br />Not just the moves.</h2><p>Good technique is not a performance. It is a conversation between what you do and how the other person responds.</p></div>
+        <div className="method-grid section-shell">{method.map((item) => <article key={item.number}><span>{item.number}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+        <div className="method-quote section-shell"><span>Remember this</span><blockquote>“When the response gets stronger, consistency becomes the skill.”</blockquote></div>
       </section>
 
-      <section className="offer section-shell" id="offer">
-        <div className="offer-visual"><div className="offer-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 760px) 62vw, 26vw" /></div></div>
-        <div className="offer-copy"><p className="eyebrow light"><span />Instant digital access</p><h2>Become more precise.<br /><em>Stay more present.</em></h2><p className="offer-lead">Get the complete 24-page playbook and turn disconnected advice into one repeatable, responsive framework.</p><ul><li>9 focused chapters</li><li>2 foundational techniques</li><li>4 complete high-impact sequences</li><li>Anatomy and positioning illustrations</li><li>Pressure, pace, timing, and endurance guidance</li><li>Immediate PDF delivery after purchase</li></ul><div className="price-row"><div><small>Digital edition</small><strong>{displayPrice}</strong><span>One-time payment</span></div><BuyButton label="Get the playbook" light /></div><p className="secure-copy">Secure checkout powered by Payhip · Adults 18+ · Digital product</p></div>
+      <section className="preview-section" id="preview">
+        <div className="preview-intro section-shell"><div><p className="eyebrow"><span />Look before you buy</p><h2>Real pages.<br />No vague promises.</h2></div><p>These previews come directly from the final 24-page edition, so you can see the writing, structure, and visual approach before purchasing.</p></div>
+        <div className="preview-grid section-shell">
+          <figure className="preview-card preview-card-one"><div><Image src="/book/table-of-contents.jpg" alt="Table of contents from The Clitoral Playbook" width={854} height={1334} sizes="(max-width: 780px) 82vw, 29vw" /></div><figcaption><span>01</span><b>The complete contents</b></figcaption></figure>
+          <figure className="preview-card preview-card-two"><div><Image src="/book/core-technique.jpg" alt="Broad flat stroke technique page from The Clitoral Playbook" width={854} height={1334} sizes="(max-width: 780px) 82vw, 29vw" /></div><figcaption><span>02</span><b>A core technique</b></figcaption></figure>
+          <figure className="preview-card preview-card-three"><div><Image src="/book/high-impact-sequence.jpg" alt="High-impact combination sequence from The Clitoral Playbook" width={854} height={1334} sizes="(max-width: 780px) 82vw, 29vw" /></div><figcaption><span>03</span><b>A complete sequence</b></figcaption></figure>
+        </div>
+        <div className="preview-cta section-shell"><p>You have seen the real product. Ready to read the rest?</p><BuyButton label={`Read the complete playbook — ${displayPrice}`} /></div>
       </section>
 
-      <section className="faq section-shell" id="questions">
-        <div className="faq-intro"><div className="section-index">07 / Before you buy</div><p className="eyebrow"><span />Straight answers</p><h2>Questions are welcome.</h2></div>
+      <section className="outcomes-section section-shell">
+        <div className="outcomes-heading"><p className="eyebrow"><span />What changes after reading</p><h2>More confidence.<br /><em>Less performing.</em></h2><p>You will not memorize dozens of tricks. You will understand a smaller number of useful decisions—and when to make them.</p></div>
+        <div className="outcomes-grid">{outcomes.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="inside-section" id="inside">
+        <div className="inside-shell section-shell">
+          <div className="inside-heading"><p className="eyebrow eyebrow-light"><span />Inside the playbook</p><h2>Nine chapters.<br />One clear progression.</h2><p>Each part builds on the last, moving from understanding to technique and finally to complete combinations.</p></div>
+          <div className="contents-grid">{contents.map(([group, ...items], index) => <article key={group}><div><span>0{index + 1}</span><h3>{group}</h3></div><ul>{items.map((item) => <li key={item}><Check />{item}</li>)}</ul></article>)}</div>
+        </div>
+      </section>
+
+      <section className="honest-section section-shell">
+        <div className="honest-card"><p className="eyebrow"><span />An honest promise</p><h2>No guide can make every body respond the same way.</h2><p>The value is not a guaranteed result. It is learning strong starting points, better observation, clearer communication, and the patience to personalize what you do.</p></div>
+        <div className="fit-card"><h3>This is for you if…</h3><ul><li><Check />You want a calm, structured place to begin.</li><li><Check />You have experience but want more consistency.</li><li><Check />You prefer practical language over crude posturing.</li><li><Check />You are willing to observe, ask, adapt, and slow down.</li></ul></div>
+      </section>
+
+      <section className="offer-section section-shell" id="offer">
+        <div className="offer-art"><div className="offer-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 780px) 58vw, 25vw" /></div><span>Digital edition</span></div>
+        <div className="offer-copy"><p className="eyebrow eyebrow-light"><span />Start reading today</p><h2>Stop wondering.<br />Start understanding.</h2><p className="offer-lead">Get the complete visual framework in one concise PDF you can read privately and return to whenever you need it.</p><div className="offer-includes"><span><Check />24 designed pages</span><span><Check />9 focused chapters</span><span><Check />4 complete sequences</span><span><Check />Instant PDF delivery</span></div><div className="offer-price"><div><small>One-time payment</small><strong>{displayPrice}</strong></div><BuyButton label="Get instant access" inverse /></div><p className="offer-microcopy">Secure checkout via Payhip · No subscription · Adults 18+ · Final total shown before payment</p></div>
+      </section>
+
+      <section className="faq-section section-shell" id="questions">
+        <div className="faq-heading"><p className="eyebrow"><span />Before you buy</p><h2>Straight answers.</h2><p>Everything you should know before purchasing the digital edition.</p></div>
         <div className="faq-list">{faqs.map(([question, answer], index) => <details key={question} open={index === 0}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
+      <section className="closing-section section-shell"><p>Twenty-four pages. One clear framework.</p><h2>The next time you are close,<br /><em>you will know what to notice.</em></h2><BuyButton label={`Get the playbook — ${displayPrice}`} /></section>
+
       <footer className="site-footer">
-        <div className="footer-brand"><Wordmark /><p>Precision over performance.</p></div>
-        <nav className="legal-links" aria-label="Legal information">
-          <Link href="/impressum">Impressum</Link>
-          <Link href="/privacy">Privacy</Link>
-          <Link href="/terms">Terms</Link>
-          <Link href="/withdrawal">Withdrawal</Link>
-          <Link href="/refund-policy">Refunds</Link>
-          <a href="mailto:hello@noryspsychologie.de">Contact</a>
-        </nav>
-        <p className="footer-note">© 2026 · For adults 18+ · Educational content, not medical advice.</p>
+        <div className="footer-brand"><Wordmark inverse /><p>Attention over performance.</p></div>
+        <nav className="legal-links" aria-label="Legal information"><Link href="/impressum">Impressum</Link><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/withdrawal">Withdrawal</Link><Link href="/refund-policy">Refunds</Link><a href="mailto:hello@noryspsychologie.de">Contact</a></nav>
+        <p className="footer-note">© 2026 · For consenting adults 18+ · Educational content, not medical advice.</p>
       </footer>
 
-      <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Digital edition</span><strong>{displayPrice}</strong></div><a href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a></aside>
+      <aside className="mobile-purchase" aria-label="Purchase The Clitoral Playbook"><div><span>Instant PDF</span><strong>{displayPrice}</strong></div><a href={checkoutUrl} target="_blank" rel="noreferrer">Get the playbook <Arrow /></a></aside>
     </main>
   );
 }
