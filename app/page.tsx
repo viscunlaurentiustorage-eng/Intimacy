@@ -84,7 +84,7 @@ export default function Home() {
         </div>
         <div className="hero-product" aria-label="The Clitoral Playbook digital edition">
           <div className="hero-shape" />
-          <div className="hero-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill priority sizes="(max-width: 780px) 72vw, 34vw" /></div>
+          <div className="hero-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill loading="eager" sizes="(max-width: 780px) 72vw, 34vw" /></div>
           <div className="hero-badge"><strong>9</strong><span>focused<br />chapters</span></div>
           <div className="hero-note">Practical. Visual.<br />Easy to remember.</div>
         </div>
