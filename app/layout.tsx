@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vezza.studio"),
-  title: "The Clitoral Playbook | Be the Reason She Says Don’t Stop",
-  description: "Learn how to read her body, build anticipation, and turn nervous guesswork into calm, attentive confidence.",
+  title: "The Pleasure Manual for Men | The Clitoral Playbook",
+  description: "A discreet, illustrated guide for men who want to understand women’s pleasure and replace guesswork with practical knowledge.",
   alternates: { canonical: "/" },
-  openGraph: { title: "The Clitoral Playbook", description: "Be the reason she says don’t stop. Learn a responsive approach to pleasure and confidence.", type: "website", url: "/" },
-  twitter: { card: "summary", title: "The Clitoral Playbook", description: "Turn guesswork into calm, attentive confidence." },
+  openGraph: { title: "The Pleasure Manual for Men", description: "A discreet, illustrated guide to women’s pleasure, attention, and practical confidence.", type: "website", url: "/" },
+  twitter: { card: "summary", title: "The Pleasure Manual for Men", description: "A discreet guide that turns guesswork into practical knowledge." },
   icons: { icon: "/favicon.svg" },
 };
 
