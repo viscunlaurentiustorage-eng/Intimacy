@@ -83,8 +83,7 @@ export default function Home() {
       </section>
 
       <section className="recognition section-shell">
-        <p className="eyebrow eyebrow-light"><span />From her, honestly</p>
-        <blockquote>“I don&apos;t need you to impress me with ten different moves. I want you to notice the one that makes me forget what I was about to say—and keep doing exactly that.”</blockquote>
+        <blockquote>“Wait… where did you learn to do that? You noticed exactly what was working, didn&apos;t rush, and didn&apos;t stop. I honestly wasn&apos;t prepared for you to be that good.”</blockquote>
       </section>
 
       <section className="method-section" id="method">

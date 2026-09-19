@@ -64,8 +64,7 @@ h2 { font-size: clamp(3.25rem, 5.5vw, 5.8rem); line-height: .96; }
 .hero-book img, .offer-book img { object-fit: cover; }
 
 .recognition { min-height: 600px; padding-top: 130px; padding-bottom: 130px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--paper); background: #172125; text-align: center; }
-.recognition .eyebrow { justify-content: center; }
-.recognition blockquote { max-width: 1050px; margin: 12px auto 0; color: #fff; font: italic 400 clamp(2.8rem, 5.25vw, 5.45rem)/1.08 Georgia, serif; letter-spacing: -.045em; }
+.recognition blockquote { max-width: 1050px; margin: 0 auto; color: #fff; font: italic 400 clamp(2.8rem, 5.25vw, 5.45rem)/1.08 Georgia, serif; letter-spacing: -.045em; }
 
 .method-section { padding: 135px 0 0; color: var(--paper); background: var(--wine); }
 .method-intro { display: grid; grid-template-columns: .75fr 1.1fr .75fr; gap: 6vw; align-items: end; }
