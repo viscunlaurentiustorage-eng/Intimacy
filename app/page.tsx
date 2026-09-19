@@ -6,11 +6,10 @@ const checkoutUrl =
   "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
 const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "$9.99";
 
-const questions = [
-  "Oh. He actually takes his time.",
-  "He noticed that worked—and did not immediately change it.",
-  "I do not have to give him turn-by-turn directions.",
-  "Where exactly has this man been hiding?",
+const resultShift = [
+  { title: "You stop second-guessing yourself.", text: "You enter the moment with a plan, stay present, and adjust without looking lost or rushing to the next move." },
+  { title: "Her reactions become your answer.", text: "You notice what changes her breathing, tension, and movement—then have the confidence to stay with what is working." },
+  { title: "You become the experience she remembers.", text: "She feels unrushed, understood, and genuinely desired. That is what makes another night together sound like a very good idea." },
 ];
 
 const method = [
@@ -90,9 +89,13 @@ export default function Home() {
       </section>
 
       <section className="recognition section-shell">
-        <div className="recognition-heading"><p className="eyebrow"><span />From her side of the bed</p><h2>She can feel the difference between trying hard and knowing what you&apos;re doing.</h2></div>
-        <div className="question-stack">{questions.map((question, index) => <div key={question}><span>0{index + 1}</span><p>{question}</p></div>)}</div>
-        <p className="recognition-close">The goal is not to impress her with more moves. It is to make her feel seen, relaxed, and increasingly reluctant to let you stop.</p>
+        <div className="recognition-heading">
+          <p className="eyebrow eyebrow-light"><span />The result</p>
+          <h2>Less “Was that good?”<br /><em>More “Don&apos;t stop.”</em></h2>
+          <p>The real upgrade is not a bigger collection of moves. It is becoming calm enough to notice her, confident enough to respond, and skilled enough to make the moment feel effortless.</p>
+        </div>
+        <div className="result-shift">{resultShift.map((result, index) => <article key={result.title}><span>0{index + 1}</span><h3>{result.title}</h3><p>{result.text}</p></article>)}</div>
+        <div className="recognition-close"><p>Your tongue was never the problem.<br /><strong>The guesswork was.</strong></p><BuyButton label={`Replace the guesswork — ${displayPrice}`} inverse /></div>
       </section>
 
       <section className="method-section" id="method">
