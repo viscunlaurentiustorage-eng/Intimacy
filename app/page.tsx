@@ -87,10 +87,7 @@ export default function Home() {
           <p className="checkout-note">Secure checkout powered by Payhip. Final total shown before payment.</p>
         </div>
         <div className="hero-product" aria-label="The Clitoral Playbook digital edition">
-          <div className="hero-shape" />
           <div className="hero-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill loading="eager" sizes="(max-width: 780px) 72vw, 34vw" /></div>
-          <div className="hero-badge"><strong>24</strong><span>clear<br />pages</span></div>
-          <div className="hero-note">For curious minds.<br />And useful tongues.</div>
         </div>
       </section>
 
