@@ -80,17 +80,17 @@ export default function Home() {
 
       <section className="hero section-shell">
         <div className="hero-copy">
-          <h1>Be the reason she says, <em>“don&apos;t stop.”</em></h1>
-          <p className="hero-lead">Learn how to read her body, build anticipation, and stay consistent when it matters—so you feel confident, she feels understood, and nobody has to pretend.</p>
-          <div className="hero-actions"><BuyButton /><a className="preview-link" href="#preview">See real pages <span>↓</span></a></div>
-          <div className="hero-proof" aria-label="Product information"><span><Check />24-page illustrated PDF</span><span><Check />Instant delivery</span><span><Check />One-time payment</span></div>
+          <h1>The pleasure manual <em>every man should read.</em></h1>
+          <p className="hero-lead">A discreet, illustrated guide for men who want to understand women&apos;s pleasure, read her response, and replace guesswork with skill. Your tongue already has the equipment. This gives it a plan.</p>
+          <div className="hero-actions"><BuyButton label={`Get the manual — ${displayPrice}`} /><a className="preview-link" href="#preview">Look inside <span>↓</span></a></div>
+          <div className="hero-proof" aria-label="Product information"><span><Check />24 illustrated pages</span><span><Check />Instant PDF</span><span><Check />One payment</span></div>
           <p className="checkout-note">Secure checkout powered by Payhip. Final total shown before payment.</p>
         </div>
         <div className="hero-product" aria-label="The Clitoral Playbook digital edition">
           <div className="hero-shape" />
           <div className="hero-book"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook ebook cover" fill loading="eager" sizes="(max-width: 780px) 72vw, 34vw" /></div>
-          <div className="hero-badge"><strong>9</strong><span>short<br />chapters</span></div>
-          <div className="hero-note">Her favorite kind<br />of confidence.</div>
+          <div className="hero-badge"><strong>24</strong><span>clear<br />pages</span></div>
+          <div className="hero-note">For curious minds.<br />And useful tongues.</div>
         </div>
       </section>
 
