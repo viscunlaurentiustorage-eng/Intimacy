@@ -51,8 +51,9 @@ h2 { font-size: clamp(3.25rem, 5.5vw, 5.8rem); line-height: .96; }
 .buy-button:hover { transform: translateY(-3px); background: #74304f; box-shadow: 0 17px 34px rgba(93,38,62,.25); }
 .buy-button-inverse { color: var(--wine); background: var(--peach); border-color: var(--peach); box-shadow: none; }
 .buy-button-inverse:hover { background: var(--paper); }
-.preview-link { color: var(--plum); font-size: .82rem; font-weight: 800; text-underline-offset: 7px; }
-.preview-link span { margin-left: 6px; color: var(--coral); }
+.preview-link { min-width: 285px; min-height: 62px; padding: 0 22px 0 25px; display: inline-flex; align-items: center; justify-content: space-between; gap: 26px; color: var(--plum); background: transparent; border: 2px solid rgba(93,38,62,.24); border-radius: 100px; text-decoration: none; font-size: .82rem; font-weight: 800; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.preview-link:hover { transform: translateY(-3px); border-color: var(--plum); background: rgba(255,255,255,.45); }
+.preview-link span { margin-left: auto; color: var(--coral-dark); font-size: 1.1rem; }
 .hero-proof { display: flex; flex-wrap: wrap; gap: 12px 22px; }
 .hero-proof span { display: inline-flex; align-items: center; gap: 7px; color: #514549; font-size: .76rem; font-weight: 700; }
 .hero-proof svg, .offer-includes svg, .fit-card svg, .contents-grid svg { width: 17px; height: 17px; flex: 0 0 auto; fill: none; stroke: var(--coral-dark); stroke-width: 2; }
@@ -234,7 +235,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--coral); outlin
   .hero-lead { font-size: 1rem; }
   .hero-actions { margin: 30px 0 22px; flex-direction: column; align-items: stretch; gap: 17px; }
   .buy-button { width: 100%; }
-  .preview-link { text-align: center; }
+  .preview-link { width: 100%; text-align: left; }
   .hero-proof { display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 6px; }
   .hero-proof span { gap: 4px; white-space: nowrap; font-size: .66rem; }
   .hero-proof svg { width: 13px; height: 13px; }
