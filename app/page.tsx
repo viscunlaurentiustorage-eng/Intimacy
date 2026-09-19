@@ -89,8 +89,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-bar" aria-label="Purchase assurances"><span>Instant PDF access</span><i /><span>Secure Payhip checkout</span><i /><span>No subscription</span><i /><span>Private, discreet purchase</span></section>
-
       <section className="recognition section-shell">
         <div className="recognition-heading"><p className="eyebrow"><span />From her side of the bed</p><h2>She can feel the difference between trying hard and knowing what you&apos;re doing.</h2></div>
         <div className="question-stack">{questions.map((question, index) => <div key={question}><span>0{index + 1}</span><p>{question}</p></div>)}</div>
