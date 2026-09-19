@@ -70,8 +70,6 @@ function BuyButton({ label = `Learn the skill — ${displayPrice}`, inverse = fa
 export default function Home() {
   return (
     <main id="top" className="home-page">
-      <div className="age-strip"><span>For consenting adults 18+</span><span>Discreet educational guide</span></div>
-
       <header className="site-header">
         <a href="#top" aria-label="The Clitoral Playbook home"><Wordmark /></a>
         <nav aria-label="Main navigation"><a href="#method">What you gain</a><a href="#preview">Preview</a><a href="#questions">Questions</a></nav>
