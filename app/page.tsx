@@ -6,12 +6,6 @@ const checkoutUrl =
   "https://payhip.com/buy?s=1&cart_links%5B%5D=035Rp&qty%5B035Rp%5D=1";
 const displayPrice = process.env.NEXT_PUBLIC_EBOOK_PRICE || "$9.99";
 
-const resultShift = [
-  { title: "You stop second-guessing yourself.", text: "You enter the moment with a plan, stay present, and adjust without looking lost or rushing to the next move." },
-  { title: "Her reactions become your answer.", text: "You notice what changes her breathing, tension, and movement—then have the confidence to stay with what is working." },
-  { title: "You become the experience she remembers.", text: "She feels unrushed, understood, and genuinely desired. That is what makes another night together sound like a very good idea." },
-];
-
 const method = [
   { number: "01", title: "Know where", text: "Understand the anatomy that matters, so your confidence comes from knowing—not from confidently guessing wrong." },
   { number: "02", title: "Build the tension", text: "Learn how to slow down, create anticipation, and make her want more before you give her more." },
@@ -89,13 +83,8 @@ export default function Home() {
       </section>
 
       <section className="recognition section-shell">
-        <div className="recognition-heading">
-          <p className="eyebrow eyebrow-light"><span />The result</p>
-          <h2>Less “Was that good?”<br /><em>More “Don&apos;t stop.”</em></h2>
-          <p>The real upgrade is not a bigger collection of moves. It is becoming calm enough to notice her, confident enough to respond, and skilled enough to make the moment feel effortless.</p>
-        </div>
-        <div className="result-shift">{resultShift.map((result, index) => <article key={result.title}><span>0{index + 1}</span><h3>{result.title}</h3><p>{result.text}</p></article>)}</div>
-        <div className="recognition-close"><p>Your tongue was never the problem.<br /><strong>The guesswork was.</strong></p><BuyButton label={`Replace the guesswork — ${displayPrice}`} inverse /></div>
+        <p className="eyebrow eyebrow-light"><span />From her, honestly</p>
+        <blockquote>“I don&apos;t need you to impress me with ten different moves. I want you to notice the one that makes me forget what I was about to say—and keep doing exactly that.”</blockquote>
       </section>
 
       <section className="method-section" id="method">
