@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: "What do I receive?",
-    answer: "A professionally designed 24-page digital PDF with nine focused chapters and four complete sequences. You can read it privately on your phone, tablet, or computer.",
+    answer: "A professionally designed 26-page digital PDF with nine focused chapters and four complete sequences. You can read it privately on your phone, tablet, or computer.",
   },
   {
     question: "How do delivery and support work?",
@@ -75,8 +75,8 @@ function Check() {
 function Brand({ inverse = false }: { inverse?: boolean }) {
   return (
     <span className={`lp-brand ${inverse ? "lp-brand-inverse" : ""}`}>
-      <span className="lp-brand-mark"><Image src="/logoW.png" alt="" width={600} height={450} sizes="42px" /></span>
-      <span>The Pleasure Manual</span>
+      <span className="lp-brand-mark"><Image src="/logo.svg" alt="" width={760} height={492} sizes="52px" /></span>
+      <span>Vezza</span>
     </span>
   );
 }
@@ -94,7 +94,7 @@ export default function Home() {
   return (
     <main id="top" className="lp-page">
       <header className="lp-header">
-        <a href="#top" aria-label="The Pleasure Manual home"><Brand /></a>
+        <a href="#top" aria-label="Vezza home"><Brand /></a>
         <nav aria-label="Main navigation">
           <a href="#result">The result</a>
           <a href="#inside">Inside</a>
@@ -108,13 +108,13 @@ export default function Home() {
       <section className="lp-hero lp-shell">
         <div className="lp-hero-copy">
           <h1>Better tongue work.<br /><em>Less guesswork.</em></h1>
-          <p className="lp-hero-lead">A private, illustrated pleasure manual for men who want to understand her body, read her response, and bring more skill to the moment—without turning intimacy into a performance.</p>
+          <p className="lp-hero-lead">A private, illustrated manual that shows you where to focus, how to use your tongue with controlled pressure and pace, and how to read her response—so you stop guessing and start adapting to the woman in front of you.</p>
           <div className="lp-hero-actions">
             <BuyButton label={`Get the digital guide — ${displayPrice}`} />
             <a className="lp-text-link" href="#inside"><span>See what you&apos;ll learn</span><Arrow down /></a>
           </div>
           <div className="lp-proof" aria-label="Product details">
-            <span><Check />24 pages</span>
+            <span><Check />26 pages</span>
             <span><Check />Instant PDF</span>
             <span><Check />One-time payment</span>
           </div>
@@ -124,22 +124,18 @@ export default function Home() {
         <div className="lp-hero-product" aria-label="The Clitoral Playbook digital guide">
           <div className="lp-cover-stage">
             <div className="lp-cover">
-              <Image src="/book/clitoral-playbook-cover.jpg" alt="Cover of The Clitoral Playbook" fill preload sizes="(max-width: 760px) 68vw, 31vw" />
+              <Image src="/book/clitoral-playbook-cover.png" alt="Cover of The Clitoral Playbook" fill preload sizes="(max-width: 760px) 68vw, 31vw" />
             </div>
             <div className="lp-cover-meta"><span>Digital edition</span><strong>{displayPrice}</strong></div>
           </div>
         </div>
       </section>
 
-      <section className="lp-reaction lp-shell" aria-label="The result to work toward">
-        <blockquote>“Okay… where did you learn that? Come here—I&apos;m not done with you yet.”</blockquote>
-      </section>
-
       <section className="lp-results lp-shell" id="result">
         <div className="lp-section-heading">
-          <p>The change</p>
-          <h2>She feels understood.<br /><em>You stop overthinking.</em></h2>
-          <span>The goal is not to perform more. It is to notice more—and know what to do with what you notice.</span>
+          <p>What changes</p>
+          <h2>She notices the difference.<br /><em>You feel it in her response.</em></h2>
+          <span>Not because you memorized a trick. Because you know where to focus, how to control pressure and pace, and when the smartest move is to keep doing exactly what works.</span>
         </div>
         <div className="lp-results-list">
           {results.map((result) => (
@@ -150,6 +146,29 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="lp-preview lp-shell" id="preview">
+        <div className="lp-preview-heading">
+          <p>A look inside</p>
+          <h2>See how it teaches.<br /><em>Keep the best parts for later.</em></h2>
+          <span>Three real pages from the manual—enough to judge the clarity, design, and approach without giving away the complete method.</span>
+        </div>
+        <div className="lp-preview-grid">
+          <figure>
+            <div><Image src="/book/previews/table-of-contents.png" alt="Table of contents from The Clitoral Playbook" width={587} height={917} sizes="(max-width: 760px) 84vw, 29vw" /></div>
+            <figcaption><span>01</span><p><strong>The complete roadmap</strong>Nine focused chapters, from anatomy to complete combinations.</p></figcaption>
+          </figure>
+          <figure>
+            <div><Image src="/book/previews/anatomy-you-need.png" alt="Preview of the anatomy chapter from The Clitoral Playbook" width={587} height={917} sizes="(max-width: 760px) 84vw, 29vw" /></div>
+            <figcaption><span>02</span><p><strong>Anatomy you can use</strong>Clear landmarks and practical context without the lecture.</p></figcaption>
+          </figure>
+          <figure>
+            <div><Image src="/book/previews/pressure-pace-timing.png" alt="Preview of the pressure, pace, and timing chapter from The Clitoral Playbook" width={587} height={917} sizes="(max-width: 760px) 84vw, 29vw" /></div>
+            <figcaption><span>03</span><p><strong>Control that has a reason</strong>A glimpse of the pressure, pace, and timing framework.</p></figcaption>
+          </figure>
+        </div>
+        <p className="lp-preview-note">The detailed techniques, complete sequences, positioning guidance, and practical method stay inside the full guide.</p>
       </section>
 
       <section className="lp-principle lp-shell">
@@ -165,9 +184,9 @@ export default function Home() {
         <div className="lp-inside-intro">
           <p>Inside the manual</p>
           <h2>Short enough to read tonight.<br /><em>Clear enough to remember later.</em></h2>
-          <p>Twenty-four focused pages. No filler, no vague advice, and no need to study it like an exam.</p>
+          <p>Twenty-six focused pages. No filler, no vague advice, and no need to study it like an exam.</p>
           <dl className="lp-stats">
-            <div><dt>24</dt><dd>illustrated pages</dd></div>
+            <div><dt>26</dt><dd>illustrated pages</dd></div>
             <div><dt>9</dt><dd>focused chapters</dd></div>
             <div><dt>4</dt><dd>complete sequences</dd></div>
           </dl>
@@ -181,14 +200,14 @@ export default function Home() {
 
       <section className="lp-offer lp-shell" id="offer">
         <div className="lp-offer-art">
-          <div className="lp-offer-cover"><Image src="/book/clitoral-playbook-cover.jpg" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 760px) 58vw, 24vw" /></div>
+          <div className="lp-offer-cover"><Image src="/book/clitoral-playbook-cover.png" alt="The Clitoral Playbook digital edition" fill sizes="(max-width: 760px) 58vw, 24vw" /></div>
         </div>
         <div className="lp-offer-copy">
           <p className="lp-offer-label">The digital edition</p>
           <h2>A private upgrade you can use for years.</h2>
           <p>Read it once for the framework. Return to it whenever you want a reset. The lessons are practical enough to use and simple enough to remember.</p>
           <ul>
-            <li><Check />Professionally designed 24-page PDF</li>
+            <li><Check />Professionally designed 26-page PDF</li>
             <li><Check />Illustrated, direct, and easy to follow</li>
             <li><Check />Made for private reading on any device</li>
             <li><Check />Instant access after purchase</li>

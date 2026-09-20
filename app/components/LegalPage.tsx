@@ -24,9 +24,9 @@ export function LegalPage({
   return (
     <main className="legal-page">
       <header className="legal-header">
-        <Link className="legal-home" href="/" aria-label="Return to The Clitoral Playbook">
-          <span className="legal-home-icon"><Image src="/logoW.png" alt="" width={600} height={450} sizes="48px" /></span>
-          <b>The Clitoral Playbook</b>
+        <Link className="legal-home" href="/" aria-label="Return to Vezza">
+          <span className="legal-home-icon"><Image src="/logo.svg" alt="" width={760} height={492} sizes="52px" /></span>
+          <b>Vezza</b>
         </Link>
         <Link className="legal-back" href="/">Back to the book</Link>
       </header>
@@ -41,7 +41,7 @@ export function LegalPage({
       </article>
 
       <footer className="legal-footer">
-        <p>© 2026 The Clitoral Playbook</p>
+        <p>© 2026 Vezza</p>
         <nav aria-label="Legal pages">
           <Link href="/impressum">Impressum</Link>
           <Link href="/privacy">Privacy</Link>
