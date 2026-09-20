@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.vezza.studio"),
-  title: "The Pleasure Manual for Men | The Clitoral Playbook",
-  description: "A discreet, illustrated guide for men who want to understand women’s pleasure and replace guesswork with practical knowledge.",
+  title: "The Pleasure Manual | Better Intimacy, Less Guesswork",
+  description: "A private illustrated guide for men who want to understand female pleasure, communicate better, and become more attentive partners.",
   alternates: { canonical: "/" },
-  openGraph: { title: "The Pleasure Manual for Men", description: "A discreet, illustrated guide to women’s pleasure, attention, and practical confidence.", type: "website", url: "/" },
-  twitter: { card: "summary", title: "The Pleasure Manual for Men", description: "A discreet guide that turns guesswork into practical knowledge." },
+  openGraph: { title: "The Pleasure Manual", description: "A private illustrated guide to confidence, communication, and better intimacy.", type: "website", url: "/" },
+  twitter: { card: "summary", title: "The Pleasure Manual", description: "A private guide that turns guesswork into practical knowledge." },
   icons: { icon: "/favicon.svg" },
 };
 
